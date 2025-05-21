@@ -4,53 +4,175 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login | Inventory Management System</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2553/2553691.png">
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #f5f7ff 0%, #e5eaff 100%);
+    }
+    .login-card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+      overflow: hidden;
+    }
+    .login-header {
+      position: relative;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      color: white;
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+      margin-bottom: 1rem;
+    }
+    .login-header h1 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 0;
+    }
+    .login-header p {
+      opacity: 0.9;
+      font-weight: 300;
+      margin-bottom: 0;
+    }
+    .login-icon {
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    .login-form {
+      padding: 1.5rem 2rem 2rem;
+    }
+    .login-footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f8f9fa;
+    }
+    .form-floating {
+      margin-bottom: 1.5rem;
+    }
+    .input-group-text {
+      background-color: transparent;
+      cursor: pointer;
+    }
+    .input-group-text:hover {
+      color: var(--primary-color);
+    }
+    .btn-login {
+      padding: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .social-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+      color: white;
+    }
+    .facebook {
+      background-color: #3b5998;
+    }
+    .google {
+      background-color: #db4437;
+    }
+    .linkedin {
+      background-color: #0077b5;
+    }
+    .social-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .form-check-label {
+      color: #555;
+    }
+  </style>
 </head>
-<body class="bg-light">
-  <div class="container">
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-6 col-lg-4">
-        <div class="card shadow-sm">
-          <div class="card-body p-4">
-            <div class="text-center mb-4">
-              <h1 class="h3">Sign In</h1>
-              <p class="text-muted">Inventory Management System</p>
+<body>
+  <div class="login-container">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 col-xl-5">
+          <div class="login-card card animate__animated animate__fadeIn">
+            <div class="login-header">
+              <i class="bi bi-box-seam login-icon"></i>
+              <h1>Welcome Back</h1>
+              <p>Inventory Management System</p>
             </div>
             
-            <div id="loginAlert" class="alert alert-danger d-none" role="alert">
-              <!-- Error messages will appear here -->
-            </div>
-            
-            <form id="loginForm">
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required>
+            <div class="login-form">
+              <div id="loginAlert" class="alert alert-danger d-none" role="alert">
+                <!-- Error messages will appear here -->
               </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <div class="input-group">
-                  <input type="password" class="form-control" id="password" required>
-                  <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+              
+              <div class="social-buttons">
+                <a href="#" class="social-button facebook">
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-button google">
+                  <i class="bi bi-google"></i>
+                </a>
+                <a href="#" class="social-button linkedin">
+                  <i class="bi bi-linkedin"></i>
+                </a>
+              </div>
+              
+              <div class="text-center mb-3">
+                <p class="text-muted">or sign in with credentials</p>
+              </div>
+              
+              <form id="loginForm">
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                  <label for="email"><i class="bi bi-envelope-fill me-2"></i>Email address</label>
+                </div>
+                <div class="form-floating mb-4">
+                  <input type="password" class="form-control" id="password" placeholder="Password" required>
+                  <label for="password"><i class="bi bi-lock-fill me-2"></i>Password</label>
+                  <button class="btn position-absolute end-0 top-50 translate-middle-y bg-transparent border-0 text-primary pe-3" type="button" id="togglePassword">
                     <i class="bi bi-eye"></i>
                   </button>
                 </div>
-              </div>
-              <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="rememberMe">
-                <label class="form-check-label" for="rememberMe">Remember me</label>
-              </div>
-              <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary">Sign In</button>
-              </div>
-            </form>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember me</label>
+                  </div>
+                  <a href="#" class="text-primary">Forgot password?</a>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-primary btn-login">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
+                  </button>
+                </div>
+              </form>
+            </div>
             
-            <div class="text-center mt-3">
-              <p class="mb-0">Don't have an account? <a href="register.html">Register</a></p>
+            <div class="login-footer">
+              <p class="mb-0">Don't have an account? <a href="register.html" class="fw-bold">Register</a></p>
             </div>
           </div>
         </div>
@@ -90,5 +212,22 @@
   
   <!-- Custom JS -->
   <script src="js/auth.js"></script>
+  <script>
+    // Toggle password visibility
+    document.getElementById('togglePassword').addEventListener('click', function() {
+      const passwordInput = document.getElementById('password');
+      const icon = this.querySelector('i');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('bi-eye');
+        icon.classList.add('bi-eye-slash');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('bi-eye-slash');
+        icon.classList.add('bi-eye');
+      }
+    });
+  </script>
 </body>
 </html> 

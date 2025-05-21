@@ -7,7 +7,8 @@ const API_BASE_URL = 'http://localhost:5000/api';
 const API_ENDPOINTS = {
   ITEMS: `${API_BASE_URL}/items`,
   HADOOP_EXPORT: `${API_BASE_URL}/hadoop/export`,
-  AUTH: `${API_BASE_URL}/auth`
+  AUTH: `${API_BASE_URL}/auth`,
+  REPORTS: `${API_BASE_URL}/reports`
 };
 
 // Error handler function
@@ -128,6 +129,71 @@ const ApiService = {
       return handleErrors(response);
     } catch (error) {
       console.error('Error fetching user profile:', error);
+      throw error;
+    }
+  },
+
+  // Get low stock items
+  getLowStockItems: async () => {
+    try {
+      const response = await fetch(`${API_ENDPOINTS.REPORTS}/low-stock`, {
+        headers: getAuthHeaders()
+      });
+      return handleErrors(response);
+    } catch (error) {
+      console.error('Error fetching low stock items:', error);
+      throw error;
+    }
+  },
+
+  // Get inventory summary
+  getInventorySummary: async () => {
+    try {
+      const response = await fetch(`${API_ENDPOINTS.REPORTS}/summary`, {
+        headers: getAuthHeaders()
+      });
+      return handleErrors(response);
+    } catch (error) {
+      console.error('Error fetching inventory summary:', error);
+      throw error;
+    }
+  },
+
+  // Get quantity extremes (top 5 and bottom 5)
+  getQuantityExtremes: async () => {
+    try {
+      const response = await fetch(`${API_ENDPOINTS.REPORTS}/quantity-extremes`, {
+        headers: getAuthHeaders()
+      });
+      return handleErrors(response);
+    } catch (error) {
+      console.error('Error fetching quantity extremes:', error);
+      throw error;
+    }
+  },
+
+  // Get supplier stock report
+  getSupplierStockReport: async () => {
+    try {
+      const response = await fetch(`${API_ENDPOINTS.REPORTS}/supplier-stock`, {
+        headers: getAuthHeaders()
+      });
+      return handleErrors(response);
+    } catch (error) {
+      console.error('Error fetching supplier stock report:', error);
+      throw error;
+    }
+  },
+
+  // Get category stock report
+  getCategoryStockReport: async () => {
+    try {
+      const response = await fetch(`${API_ENDPOINTS.REPORTS}/category-stock`, {
+        headers: getAuthHeaders()
+      });
+      return handleErrors(response);
+    } catch (error) {
+      console.error('Error fetching category stock report:', error);
       throw error;
     }
   }
