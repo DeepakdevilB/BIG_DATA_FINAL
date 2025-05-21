@@ -26,6 +26,11 @@ const itemSchema = new mongoose.Schema({
     required: [true, 'Please add a supplier'],
     trim: true
   },
+  minStockLevel: {
+    type: Number,
+    default: 10,
+    min: 0
+  },
   dateAdded: {
     type: Date,
     default: Date.now

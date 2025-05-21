@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/items', require('./routes/itemRoutes'));
 app.use('/api/hadoop', require('./routes/hadoopRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/reports', require('./routes/reportRoutes'));
 
 // Welcome route
 app.get('/', (req, res) => {
